@@ -239,26 +239,5 @@ namespace Kortakerfi
             }
             return data;
         }
-
-        // Get Number of Passengers on a Flight 
-        public int NumberOfPassengers(string flightNumber, string flightDate)
-        {
-            int line = 0;
-
-            if (OpenConnection())
-            {
-                command = "SELECT NumberOfPassengers('" + flightNumber + "', '" + flightDate + "')";
-                SQLcommand = new MySqlCommand(command, SQLconnection);
-                SQLreader = SQLcommand.ExecuteReader();
-
-                while (SQLreader.Read())
-                {
-                    line = ((int)SQLreader.GetValue(0));
-                }
-                CloseConnection();
-            }
-
-            return line;
-        }
     }
 }
