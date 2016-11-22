@@ -69,6 +69,16 @@ BEGIN
 	INSERT INTO Visits(MembershipID, CheckInDate) VALUES (m_id, NOW());
 END $$
 
+-- Fetch total visits
+DROP PROCEDURE IF EXISTS TotalVisits $$
+
+CREATE PROCEDURE TotalVisits(MembershipID_APP = INT(50));
+BEGIN
+	DECLARE	Total INT;
+	SELECT COUNT(MembershipID) INTO Total FROM visits WHERE MembershipID = MembershipID_APP
+
+END $$
+
 -- Get Visits
 DROP PROCEDURE IF EXISTS GetVisits $$
 
