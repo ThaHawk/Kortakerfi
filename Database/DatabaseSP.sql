@@ -72,7 +72,7 @@ END $$
 -- Fetch total visits
 DROP PROCEDURE IF EXISTS TotalVisits $$
 
-CREATE PROCEDURE TotalVisits(MembershipID_APP = INT(50));
+CREATE PROCEDURE TotalVisits(MembershipID_APP INT(11));
 BEGIN
 	DECLARE	Total INT;
 	SELECT COUNT(MembershipID) INTO Total FROM visits WHERE MembershipID = MembershipID_APP
